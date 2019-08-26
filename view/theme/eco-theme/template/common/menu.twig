@@ -1,0 +1,44 @@
+{% if categories %}
+<div class="header-menu">
+  <div class="container">
+    <nav id="menu" class="navbar">
+      <button id="menu-close" class="menu-button menu-button-close hidden-sm hidden-md hidden-lg"><i class="fa fa-times"></i></button>
+      <ul class="menu-list">
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ contact }}" class="nav_right_href"><i class="fa fa-phone"></i>{{ telephone }}</a></li>
+        
+        {% if logged %}
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ account }}"><i class="fa fa-cabinet"></i> {{ text_account }}</a></li>            
+        {% else %}
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ register }}"><i class="fas fa-pen"></i> {{ text_register }}</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ login }}"><i class="fas fa-sign-in-alt"></i> {{ text_login }}</a></li>
+        {% endif %}
+        
+        {% for category in categories %}
+        {% if category.children %}
+        <li class="dropdown">
+          <i class="fa fa-chevron-right hidden-sm hidden-md hidden-lg"></i>
+          <a href="{{ category.href }}">{{ category.name }}</a>
+        </li>
+        {% else %}
+        <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if logged %}
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ logout }}">{{ text_logout }}</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% endif %} 
+
+<script>
+// $('#menu_btn').on('click', function() {
+//   $('.navbar').toggleClass('ovf-visible');
+//   $('.menu_right_toggle').toggleClass('toggle_menu');
+// });
+// $('#menu-btn').on('click', function() {
+// 		$('.header-menu').toggleClass('toggle_menu');
+// 	});
+</script>

@@ -1,0 +1,43 @@
+{% if categories %}
+<div class="header_menu">
+  <div class="container">
+    <nav id="menu" class="navbar">
+      <div class="navbar-header">
+        <button type="button" class="btn btn-navbar navbar-toggle" id="menu_btn" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+      </div>
+      <div class="menu_right_toggle">
+        <ul class="nav navbar-nav">
+          <li class="hidden-sm hidden-md hidden-lg">
+            {% if logged %}
+            <li class="hidden-sm hidden-md hidden-lg"><a href="{{ account }}"><i class="fa fa-cabinet"></i> {{ text_account }}</a></li>            
+            {% else %}
+            <li class="hidden-sm hidden-md hidden-lg"><a href="{{ register }}"><i class="fas fa-pen"></i> {{ text_register }}</a></li>
+            <li class="hidden-sm hidden-md hidden-lg"><a href="{{ login }}"><i class="fas fa-sign-in-alt"></i> {{ text_login }}</a></li>
+            {% endif %}
+          </li>
+          {% for category in categories %}
+          {% if category.children %}
+          <li class="dropdown">
+            <a href="{{ category.href }}">{{ category.name }}</a>
+          </li>
+          {% else %}
+          <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+          {% endif %}
+          {% endfor %}
+          {% if logged %}
+          <li class="hidden-sm hidden-md hidden-lg"><a href="{{ logout }}">{{ text_logout }}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+{% endif %} 
+
+<script>
+$('#menu_btn').on('click', function() {
+  $('.navbar').toggleClass('ovf-visible');
+  $('.menu_right_toggle').toggleClass('toggle_menu');
+});
+</script>

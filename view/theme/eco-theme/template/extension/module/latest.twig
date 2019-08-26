@@ -1,0 +1,59 @@
+<h3 class="latest_heading_3">{{ heading_title }}</h3>
+<div class="row"> {% for product in products %}
+  <div class="product-layout col-lg-3 col-md-3 col-sm-4 col-xs-6">
+    <div class="product-thumb transition">
+      <div class="image"><a class="product_image_thumb product_popup" id={{product.href}} style="background-image: url({{ product.thumb }})"></a></div>
+      <div class="caption">
+        <p class="delivery_days">Дни доставки: {{ product.sku }}</p>
+        <h4 class="product_name">{{ product.name }}</h4>
+        {% if product.rating %}
+        <div class="rating">{% for i in 1..5 %}
+          {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
+          {% endfor %}</div>
+        {% endif %}
+        {% if product.price %}
+        <p class="price"> {% if not product.special %}
+          {{ product.price }}
+          <span class="product_upc">{{product.upc}}</span>
+          {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+          {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %}
+          
+        </p>
+        {% endif %} </div>
+      <div class="button-group">
+        <div class="good_counter">
+          <button class="eco_btn btn-primary" onclick="cart.decrement('{{product.product_id}}')">
+            <i class="fa fa-minus"></i>
+          </button>
+          <input id="cart_quantity_{{product.product_id}}" class="cart_quantity" type="number" value="1">
+          <button class="eco_btn btn-primary" onclick="cart.increment('{{product.product_id}}')">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+        
+        <button class="add_to_cart_btn" type="button" onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+        <!--<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>-->
+      </div>
+    </div>
+  </div>
+  {% endfor %} </div>
+
+<script>
+  $('.image').click(function() {
+    $.magnificPopup.open({
+      items: {
+        src: $(this).find('a').attr('id')
+      },
+
+      type: 'iframe',
+      iframe: {
+        markup: '<div class="mfp-iframe-scaler">'+
+            '<div class="mfp-close"></div>'+
+            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+          '</div>',
+      }
+    });
+  });
+
+
+</script>

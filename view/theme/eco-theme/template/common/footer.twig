@@ -1,0 +1,40 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="logo"><h5>{{ store }}</h5><br /></div>
+        <div class="address_phone">
+          <p class="address">{{ address }}</p>
+          <p class="phone">{{ phone }}</p>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-whatsapp"></i></a>
+        </div>
+      </div>
+      {% if informations %}
+      <div class="col-sm-3 float-right">
+        <h5 class="footer_titles">Для клиентов</h5>
+        <ul class="list-unstyled">
+        {% for information in informations %}
+          <li class="footer_link"><a href="{{ information.href }}">{{ information.title }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    <hr>
+    <p class="footer_last">{{ store }} 2019</p>
+  </div>
+</footer>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+<script><!--
+--></script>
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body></html>
