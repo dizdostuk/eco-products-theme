@@ -202,15 +202,16 @@ var cart = {
 				}
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success alert-dismissible" style="position: fixed; right: 3%; bottom: 20%; z-index: 1;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					$('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
 
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						
 						$('#cart > a').html('<i class="fa fa-shopping-basket"></i><span id="cart-total" class="card_total"> ' + json['total'] + '</span>');
 					},300);
+
 					setTimeout(function() {
-						$('div.alert').hide(300);
+						$('div.alert-success').hide(300);
 					}, 3000);
 
 					$('.popup_block > ul').load('index.php?route=common/cart/info ul li');
