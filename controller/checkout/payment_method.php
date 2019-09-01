@@ -98,6 +98,11 @@ class ControllerCheckoutPaymentMethod extends Controller {
 		} else {
 			$data['comment'] = '';
 		}
+		if(isset($this->session->data['delivery_day'])) {
+			$data['delivery_day'] = $this->session->data['delivery_day'];
+		} else {
+			$data['delivery_day'] = '';
+		}
 
 		$data['scripts'] = $this->document->getScripts();
 

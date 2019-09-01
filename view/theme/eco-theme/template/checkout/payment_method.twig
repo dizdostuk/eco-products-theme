@@ -1,6 +1,25 @@
 {% if error_warning %}
 <div class="alert alert-warning alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
 {% endif %}
+<p>Выберите день доставки</p>
+<div class="radio">
+  <label>
+    <input id="wednesday" type="radio" name="delivery_day" value="Среда">
+    Среда
+  </label>
+  <label>
+    <input id="saturday" type="radio" name="delivery_day" value="Суббота">Суббота
+  </label>
+  <script>
+    let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    let today = new Date().getDay();
+    if( (today == 6) || today >= 0 && today < 2) {
+      wednesday.checked = true;
+    } else if(today > 3 && today < 5){
+      saturday.checked = true;
+    }
+  </script>
+</div>
 {% if payment_methods %}
 <p>{{ text_payment_method }}</p>
 {% for payment_method in payment_methods %}
@@ -36,7 +55,7 @@
 </div>
 {% else %}
 <div class="buttons">
-  <div class="pull-right">
+  <div class="pull-left">
     <input type="button" value="{{ button_continue }}" id="button-payment-method" data-loading-text="{{ text_loading }}" class="btn btn-success" />
   </div>
 </div>
