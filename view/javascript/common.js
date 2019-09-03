@@ -35,7 +35,9 @@ function getURLVar(key) {
 
 $(document).ready(function() {
 	//Menu btn
-	
+	$('.btn-wishlist').hover(function() {
+		$('.btn-wishlist i').css('font-size', '27px')
+	});
 
 	// Highlight any found errors
 	$('.text-danger').each(function() {
@@ -337,13 +339,14 @@ var wishlist = {
 				}
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					// $('#wishlist-icon').replaceWith('<i class="fa fa-heart" />');
+					$('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
+
 				}
 
 				$('#wishlist-total span').html(json['total']);
 				$('#wishlist-total').attr('title', json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);

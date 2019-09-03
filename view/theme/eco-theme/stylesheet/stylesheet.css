@@ -488,6 +488,34 @@ footer .logo > h5 {
 	font-size: 2rem;
 	text-transform: uppercase;
 }
+/************** Wishlist button *********************/
+.btn-wishlist {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	padding: 0;
+
+	background: none;
+	border: none;
+	outline: none;
+}
+.btn-wishlist i {
+	font-size: 25px;
+	color: deeppink;
+	
+	transition: all 0.5s ease-in-out;
+}
+.btn-wishlist:hover, .btn-wishlist:focus {
+	background: none;
+	border: none;
+}
+/**************** User link in header ********************/
+.user-link > i {
+	font-size: 25px;
+	color: #000;
+}
+
+
 /*******************************
 * Responsibilities and adaptive
 ********************************/

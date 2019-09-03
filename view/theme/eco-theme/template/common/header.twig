@@ -88,14 +88,12 @@
         </div>
         <div class="col-sm-6 hidden-xs">{{ search }}</div>
         <div class="hidden-xs hidden-sm col-md-1 col-lg-1 width-auto">
-          <a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
+          <a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle user-link" data-toggle="dropdown"><i class="fa fa-user"></i></a>
           
           <ul class="dropdown-menu dropdown-menu-right">
             {% if logged %}
             <li><a href="{{ account }}">{{ text_account }}</a></li>
             <li><a href="{{ order }}">{{ text_order }}</a></li>
-            <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-            <li><a href="{{ download }}">{{ text_download }}</a></li>
             <li><a href="{{ logout }}">{{ text_logout }}</a></li>
             {% else %}
             <li><a href="{{ register }}">{{ text_register }}</a></li>
