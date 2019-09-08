@@ -87,6 +87,14 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
+
+		if(date('D') == 'Sat' || date('D') == 'Sun' || date('D') == 'Mon') {
+			$data['close_date'] = date('d.m.Y', strtotime('next wednesday'));
+			
+		} else if(date('D') == 'Tue' || date('D') == 'Wed' || date('D') == 'Thu') {
+			$data['close_date'] = date('d.m.Y', strtotime('next saturday'));
+
+		}
 		
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');

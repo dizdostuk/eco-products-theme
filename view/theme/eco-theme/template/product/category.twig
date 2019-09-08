@@ -89,11 +89,11 @@
       <div class="row margin-top-30"> {% for product in products %}
         <div class="product-layout product-grid col-lg-3 col-md-3 col-sm-4 col-xs-6">
           <div class="product-thumb">
-            <div class="image"><a class="product_popup product_image_thumb" id="{{ product.href }}" style="background-image: url({{ product.thumb }})"></a></div>
+            <div class="image"><p class="product_image_thumb product_popup" id="{{ product.href }}" style="background-image: url({{ product.thumb }})"></p></div>
             
               <div class="caption">
-                <p class="delivery_days product_popup">Дни доставки: {{ product.sku }}</p>
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                <p class="delivery_days ">Дни доставки: {{ product.sku }}</p>
+                <h4><p class="product_popup" id="{{ product.href }}">{{ product.name }}</p></h4>
                 {% if product.price %}
                 <p class="price"> {% if not product.special %}
                   {{ product.price }}
@@ -136,10 +136,10 @@
 </div>
 {{ footer }} 
 <script>
-  $('.image').click(function() {
+  $('p.product_popup').click(function() {
     $.magnificPopup.open({
       items: {
-        src: $(this).find('a').attr('id')
+        src: $(this).attr('id')
       },
 
       type: 'iframe',

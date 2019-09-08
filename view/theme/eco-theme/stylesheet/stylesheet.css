@@ -404,6 +404,9 @@ footer .logo > h5 {
 	background-color: #fff;
 	border: 1px solid #ddd;
 }
+.product_popup {
+	cursor: pointer;
+}
 /************** Checkout and confirm goods ***********************/
 .panel-default>.panel-heading {
 	color: #fff;

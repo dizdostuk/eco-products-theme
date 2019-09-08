@@ -36,14 +36,16 @@
       </tbody>
     
     <tfoot>
-    
-    {% for total in totals %}
-    <tr>
-      <td colspan="3" class="text-right"><strong>{{ total.title }}:</strong></td>
-      <td class="text-right">{{ total.text }}</td>
-    </tr>
-    {% endfor %}
-      </tfoot>
+      {% for total in totals %}
+      {% if total.title == "Итого" %}
+      <tr>
+        <td colspan="3" class="text-right"><strong>{{ total.title }}:</strong></td>
+        <td class="text-right" id="delivery_cost">{{ total.text }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      
+    </tfoot>
     
   </table>
 </div>

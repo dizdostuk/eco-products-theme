@@ -4,11 +4,11 @@
     <div class="product-thumb transition">
       <button type="button" data-toggle="tooltip" class="btn btn-default btn-wishlist" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i id="wishlist-icon" class="far fa-heart"></i></button>
       <div class="image">
-        <a class="product_image_thumb product_popup" id={{product.href}} style="background-image: url({{ product.thumb }})"></a>
+        <p class="product_image_thumb product_popup" id={{product.href}} style="background-image: url({{ product.thumb }})"></p>
       </div>
       <div class="caption {{product.product_id}}">
         <p class="delivery_days">Дни доставки: {{ product.sku }}</p>
-        <h4 class="product_name"><a>{{ product.name }}</a></h4>
+        <h4 class="product_name"><p class="product_popup" id={{product.href}}>{{ product.name }}</p></h4>
         {% if product.rating %}
         <div class="rating">{% for i in 1..5 %}
           {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
@@ -43,10 +43,10 @@
   {% endfor %} </div>
 
 <script>
-  $('.image').click(function() {
+  $('p.product_popup').click(function() {
     $.magnificPopup.open({
       items: {
-        src: $(this).find('a').attr('id')
+        src: $(this).attr('id')
       },
 
       type: 'iframe',

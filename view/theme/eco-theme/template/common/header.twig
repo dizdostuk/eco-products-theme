@@ -51,7 +51,7 @@
         {% if informations %}
           {% for information in informations %}
             {% if information.id == 6 %}
-              <a href="{{information.href}}" class="nav_right_href"><i class="fa fa-clock-o"></i>Ближайшая доставка</a>
+              <a href="{{information.href}}" class="nav_right_href"><i class="fa fa-clock-o"></i>Ближайшая доставка {{ close_date }}</a>
             {% endif %}
           {% endfor %}
         {% endif %}

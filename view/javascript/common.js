@@ -339,8 +339,8 @@ var wishlist = {
 				}
 
 				if (json['success']) {
-					// $('#wishlist-icon').replaceWith('<i class="fa fa-heart" />');
-					$('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
+					$('#wishlist-icon').replaceWith('<i class="fa fa-heart" />');
+					// $('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
 
 				}
 

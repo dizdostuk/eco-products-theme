@@ -2,7 +2,8 @@
 class ControllerCheckoutPaymentMethod extends Controller {
 	public function index() {
 		$this->load->language('checkout/checkout');
-
+		
+		
 		if (isset($this->session->data['payment_address'])) {
 			// Totals
 			$totals = array();
@@ -98,12 +99,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 		} else {
 			$data['comment'] = '';
 		}
-		if(isset($this->session->data['delivery_day'])) {
-			$data['delivery_day'] = $this->session->data['delivery_day'];
-		} else {
-			$data['delivery_day'] = '';
-		}
-
+		
 		$data['scripts'] = $this->document->getScripts();
 
 		if ($this->config->get('config_checkout_id')) {
