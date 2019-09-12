@@ -601,6 +601,9 @@ footer .logo > h5 {
 }
 
 @media screen and (max-width: 768px) {
+	.mfp-content {
+		height: 100%;
+	}
 	.header,.header-menu {
 		position: sticky;
 		z-index: 101;
