@@ -6,9 +6,9 @@ $_['text_title']       = 'Фиксированная стоимость дост
 if(date("D", time()) == "Tue") {
   $date = new DateTime();
   date_add($date, date_interval_create_from_date_string('8 days'));
-  $_['text_description'] = 'Доставка на следующий вторник ' . date_format($date, 'Y-m-d');
+  $_['text_description'] = 'Доставка на среду ' . date_format($date, 'd m Y') . ' (Доставка на ближайщий вторник не доступна!)';
 } else {
-  $_['text_description'] = 'Доставка на следующий вторник ' . date('d-m-Y', strtotime('next tuesday'));
+  $_['text_description'] = 'Доставка на следующую среду ' . date('d m Y', strtotime('next wednesday'));
 }
 
 
