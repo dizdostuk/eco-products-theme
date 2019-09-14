@@ -615,21 +615,6 @@ footer .logo > h5 {
 }
 
 @media screen and (max-width: 768px) {
-	.menu-list {
-		list-style: none;
-		margin: 0;
-		display: flex;
-    align-items: center;
-		height: 48px;
-		overflow-y: scroll;
-	}
-	.menu-list li {
-		display: inline-block;
-		margin-right: 25px;
-	}
-	.menu-list li a {
-		color: #fff;
-	}
 	.mfp-content {
 		height: 100%;
 	}
@@ -667,7 +652,8 @@ footer .logo > h5 {
 		
 		min-height: 100vh;
     margin: 0;
-    padding-left: 0;
+		padding-left: 0;
+		overflow-y: scroll;
 	}
 	.menu-list li {
 		position: relative;
@@ -710,5 +696,19 @@ footer .logo > h5 {
 	.navbar {
 		margin: 0;
 		font-size: 16px;
+	}
+	.menu-list {
+		list-style: none;
+		margin: 0;
+		display: flex;
+    align-items: center;
+		height: 48px;
+	}
+	.menu-list li {
+		display: inline-block;
+		margin-right: 25px;
+	}
+	.menu-list li a {
+		color: #fff;
 	}
 }
