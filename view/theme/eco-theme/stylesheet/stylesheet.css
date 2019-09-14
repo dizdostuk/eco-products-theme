@@ -218,6 +218,15 @@ i.fa-shopping-cart {
 .latest_heading_3 {
 	margin-bottom: 50px;
 }
+/********** Thumbnailphoto in product popup page ***********/
+.thumbnail-popup-product {
+	width: 450px;
+	min-height: 300px;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	background-position: center !important;
+}
+/******************************************/
 .product-thumb {
 	border: 1px solid rgb(236, 236, 236);
 	border-radius: 10px;
@@ -244,6 +253,7 @@ i.fa-shopping-cart {
 }
 .caption {
 	padding-left: 10px;
+	padding-right: 10px;
 }
 .caption > h4 > a {
 	font-family: 'Roboto', 'sans-serif';
@@ -254,7 +264,7 @@ i.fa-shopping-cart {
 .price {
 	font-family: 'Roboto', 'sans-serif';
 	font-size: 18px;
-	color: #81E24A;
+	color: #595959;
 }
 .product_upc {
 	color: rgb(150, 150, 150);
@@ -563,6 +573,10 @@ footer .logo > h5 {
 	.product-thumb {
 		position: relative;
 	}
+	.thumbnail-popup-product {
+		width: 100%;
+    min-height: 275px;
+	}
 	.button-group {
 		position: absolute;
     bottom: 15px;
@@ -601,6 +615,21 @@ footer .logo > h5 {
 }
 
 @media screen and (max-width: 768px) {
+	.menu-list {
+		list-style: none;
+		margin: 0;
+		display: flex;
+    align-items: center;
+		height: 48px;
+		overflow-y: scroll;
+	}
+	.menu-list li {
+		display: inline-block;
+		margin-right: 25px;
+	}
+	.menu-list li a {
+		color: #fff;
+	}
 	.mfp-content {
 		height: 100%;
 	}
@@ -681,19 +710,5 @@ footer .logo > h5 {
 	.navbar {
 		margin: 0;
 		font-size: 16px;
-	}
-	.menu-list {
-		list-style: none;
-		margin: 0;
-		display: flex;
-    align-items: center;
-		height: 48px;
-	}
-	.menu-list li {
-		display: inline-block;
-		margin-right: 25px;
-	}
-	.menu-list li a {
-		color: #fff;
 	}
 }

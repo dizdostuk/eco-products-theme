@@ -5,6 +5,7 @@
       <button id="menu-close" class="menu-button menu-button-close hidden-sm hidden-md hidden-lg"><i class="fa fa-times"></i></button>
       <ul class="menu-list">
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ contact }}" class="nav_right_href"><i class="fa fa-phone"></i>{{ telephone }}</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="{{ search }}" class="nav_right_href"><i class="fa fa-search"></i> Поиск</a></li>
         
         {% if logged %}
         <li class="hidden-sm hidden-md hidden-lg"><a href="{{ account }}"><i class="fa fa-user"></i> {{ text_account }}</a></li>         
@@ -31,7 +32,7 @@
         {% if informations %}
           {% for information in informations %}
             {% if information.id == 6 %}
-              <li class="hidden-sm hidden-md hidden-lg"><a href="{{ information.title }}" class="nav_right_href"><i class="fa fa-truck"></i>{{ information.title }}</a></li>
+              <li class="hidden-sm hidden-md hidden-lg"><a href="{{ information.href }}" class="nav_right_href"><i class="fa fa-truck"></i>{{ information.title }}</a></li>
             {% endif %}
           {% endfor %}
         {% endif %}

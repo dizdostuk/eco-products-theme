@@ -45,10 +45,12 @@
       <div class="cart_dropdown_summ">
         <table class="table table-bordered">
           {% for total in totals %}
+          {% if total.title == "Итого" %}
           <tr>
             <td class="text-left"><strong>{{ total.title }}</strong></td>
             <td class="text-left">{{ total.text }}</td>
           </tr>
+          {% endif %}
           {% endfor %}
         </table>
         <p class="text-right">&nbsp;&nbsp;&nbsp;<a href="{{ checkout }}" class="btn checkout_btn"><strong>{{ text_checkout }}</strong></a></p>

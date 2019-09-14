@@ -26,6 +26,7 @@ class ControllerCommonMenu extends Controller {
 		$data['download'] = $this->url->link('account/download', '', true);
 		$data['logout'] = $this->url->link('account/logout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
+		$data['search'] = $this->url->link('product/search');
 		$data['telephone'] = $this->config->get('config_telephone');
 
 		// Menu
