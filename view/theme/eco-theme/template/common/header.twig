@@ -73,14 +73,14 @@
       </div>
 
       <div class="row responsive-header">
-        <div class="col-sm-4 hidden-xs hidden-sm">
+        <div class="col-sm-3 hidden-xs hidden-sm">
           <div class="header_links flex_align_middle">
             {% if informations %}
               {% for information in informations %}
-                {% if information.id != 5 %}
-                  {% if information.id != 3 %}
+                {% if information.id != 5 and information.id != 3 and information.id != 7  %}
+                    {# <p>{{information.title}} - {{information.id}}</p> //checking information title and id #}
                     <a href="{{information.href}}" class="header_link">{{information.title}}</a>
-                  {% endif %}
+                  
                 {% endif %}
               {% endfor %}
             {% endif %}

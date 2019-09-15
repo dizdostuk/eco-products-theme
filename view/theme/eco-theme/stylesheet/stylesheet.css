@@ -527,6 +527,16 @@ footer .logo > h5 {
 	font-size: 25px;
 	color: #000;
 }
+/**************** Product Popup style *******************/
+.mfp-iframe-scaler iframe > html {
+	background-color: #f3f0eb;
+}
+.popup_product_bgc {
+	background-color: #f3f0eb;
+}
+.tab-pane > div {
+	background-color: none;
+}
 
 
 /*******************************

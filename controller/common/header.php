@@ -91,9 +91,8 @@ class ControllerCommonHeader extends Controller {
 		if(date('D') == 'Sat' || date('D') == 'Sun' || date('D') == 'Mon') {
 			$data['close_date'] = date('d.m.Y', strtotime('next wednesday'));
 			
-		} else if(date('D') == 'Tue' || date('D') == 'Wed' || date('D') == 'Thu') {
+		} else if(date('D') == 'Tue' || date('D') == 'Wed' || date('D') == 'Thu' || date('D') == 'Fri') {
 			$data['close_date'] = date('d.m.Y', strtotime('next saturday'));
-
 		}
 		
 		$data['language'] = $this->load->controller('common/language');

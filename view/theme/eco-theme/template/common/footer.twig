@@ -17,7 +17,9 @@
         <h5 class="footer_titles">Для клиентов</h5>
         <ul class="list-unstyled">
         {% for information in informations %}
-          <li class="footer_link"><a href="{{ information.href }}">{{ information.title }}</a></li>
+          {% if information.id != 7 %}
+            <li class="footer_link"><a href="{{ information.href }}">{{ information.title }}</a></li>
+          {% endif %}
         {% endfor %}
         </ul>
       </div>
