@@ -1,6 +1,6 @@
 <h3 class="latest_heading_3">{{ heading_title }}</h3>
 <div class="row"> {% for product in products %}
-  <div class="product-layout col-lg-3 col-md-3 col-sm-4 col-xs-6">
+  <div class="product-layout col-lg-3 col-md-3 col-sm-4 col-xs-6 devices-width">
     <div class="product-thumb transition">
       <button type="button" data-toggle="tooltip" class="btn btn-default btn-wishlist" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i id="wishlist-icon" class="far fa-heart"></i></button>
       <div class="image">

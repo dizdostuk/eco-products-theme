@@ -543,6 +543,13 @@ footer .logo > h5 {
 * Responsibilities and adaptive
 ********************************/
 @media screen and (max-width: 562px) {
+	/*********** Cart popup ******************/
+	.mfp-wrap {
+		top: 64% !important;
+	    left: 50% !important;
+	    position: fixed !important;
+	    transform: translate(-50%, -50%) !important;
+	}
 	.float-right {
 		float: none;
 		margin-top: 20px;
@@ -559,15 +566,26 @@ footer .logo > h5 {
 		color: #fff;
 	}
 	.product-layout .product-thumb {
-		height: 335px;
+		height: 355px;
 	}
-	.product-layout .product-thumb > .caption > h4 > a {
-		display: block;
-		height: 35px;
+	.product-thumb {
+		position: relative;
+		border-top-right-radius: 10px;
+	    border-top-left-radius: 10px;
+	    border-radius: 0;
+	}
+
+	h4.product_name {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	h4.product_name > p.product_popup {
+		font-size: 14px;
 	}
 	button.mfp-close {
 		color: #333 !important;
 	}
+
 	.child_categ_list {
 		padding: 0;
 	}
@@ -577,24 +595,33 @@ footer .logo > h5 {
 	.add_to_cart_btn {
 		height: 28px;
 	}
-	.add_to_cart_btn {
-		width: 56px;
-	}
-	.product-thumb {
-		position: relative;
-	}
+	
 	.thumbnail-popup-product {
 		width: 100%;
-    min-height: 275px;
+	    min-height: 275px;
 	}
 	.button-group {
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
+		flex-direction: column;
+
 		position: absolute;
-    bottom: 15px;
-    padding: 0;
-    width: 100%;
+	    bottom: 0px;
+	    padding: 0;
+	    width: 100%;
+	}
+	.good_counter > button.eco_btn {
+		width: 33.333%;
+		border-radius: 0;
+	}
+	.button-group .good_counter > .cart_quantity {
+		width: 33.333%;
 	}
 	.add_to_cart_btn {
-		margin-left: 20px;
+		width: 100%;
+		border-radius: 0;
 	}
 	.shopping_cart_link {
 		justify-content: flex-end;
@@ -611,6 +638,11 @@ footer .logo > h5 {
 		width: 70%;
 		padding-top: 5px;
 		padding-bottom: 5px;
+	}
+	/************* Product width ************/
+	.devices-width {
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 }
 
