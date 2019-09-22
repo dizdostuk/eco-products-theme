@@ -27,7 +27,7 @@
       {% endif %}
       {% if categories %}
       
-      {% if categories|length <= 5 %}
+      {% if categories %}
       <div class="row margin-top-30">
         <div class="col-sm-12">
           <ul class="child_categ_list">
@@ -87,16 +87,16 @@
         </div>
       </div>
       <div class="row margin-top-30"> {% for product in products %}
-        <div class="product-layout product-grid col-lg-3 col-md-3 col-sm-4 col-xs-6">
+        <div class="product-layout product-grid col-lg-3 col-md-3 col-sm-4 col-xs-6 devices-width">
           <div class="product-thumb">
             <button type="button" data-toggle="tooltip" class="btn btn-default btn-wishlist" title="" onclick="wishlist.add({{ product.product_id }});" data-original-title="В закладки"><i id="wishlist-icon" class="far fa-heart"></i></button>
             <div class="image">
-              <p class="product_image_thumb product_popup" id="{{ product.href }}" style="background-image: url({{ product.thumb }})"></p>
+              <p class="product_image_thumb product_image_thumb_category product_popup" id="{{ product.href }}" style="background-image: url({{ product.thumb }})"></p>
             </div>
             
               <div class="caption">
                 <p class="delivery_days ">Дни доставки: {{ product.sku }}</p>
-                <h4><p class="product_popup" id="{{ product.href }}">{{ product.name }}</p></h4>
+                <h4 class="product_name"><p class="product_popup" id="{{ product.href }}">{{ product.name }}</p></h4>
                 {% if product.price %}
                 <p class="price"> {% if not product.special %}
                   {{ product.price }}

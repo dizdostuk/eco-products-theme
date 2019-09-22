@@ -310,6 +310,9 @@ i.fa-shopping-cart {
 .add_to_cart_btn:hover {
 	background-color: #b2d235;
 }
+.btn-primary:active, .btn-primary:focus, .btn-primary:visited {
+	background-color: #b74e03 !important
+}
 
 footer {
 	margin-top: 70px;
@@ -537,6 +540,11 @@ footer .logo > h5 {
 .tab-pane > div {
 	background-color: none;
 }
+/************** Product card *****************/
+.product_image_thumb_category {
+	-webkit-background-size: auto;
+	background-size: auto;
+}
 
 
 /*******************************
@@ -544,11 +552,11 @@ footer .logo > h5 {
 ********************************/
 @media screen and (max-width: 562px) {
 	/*********** Cart popup ******************/
-	.mfp-wrap {
+	.cart-popup {
 		top: 64% !important;
-	    left: 50% !important;
-	    position: fixed !important;
-	    transform: translate(-50%, -50%) !important;
+		left: 50% !important;
+		position: fixed !important;
+		transform: translate(-50%, -50%) !important;
 	}
 	.float-right {
 		float: none;
@@ -565,16 +573,26 @@ footer .logo > h5 {
 	.categ_child_menu, .see-all {
 		color: #fff;
 	}
-	.product-layout .product-thumb {
-		height: 355px;
-	}
+	/* .product-layout .product-thumb {
+		height: 340px;
+	} */
 	.product-thumb {
 		position: relative;
 		border-top-right-radius: 10px;
 	    border-top-left-radius: 10px;
 	    border-radius: 0;
 	}
+	/************* Tab pane **********/
+	.tab-pane > p {
+		width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+	}
 
+	/************* Product ***********/
+	p.delivery_days {
+		font-size: 12px;
+	}
 	h4.product_name {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -585,10 +603,6 @@ footer .logo > h5 {
 	button.mfp-close {
 		color: #333 !important;
 	}
-
-	.child_categ_list {
-		padding: 0;
-	}
 	
 	.eco_btn,
 	.button-group .good_counter > .cart_quantity,
@@ -598,23 +612,24 @@ footer .logo > h5 {
 	
 	.thumbnail-popup-product {
 		width: 100%;
-	    min-height: 275px;
+		min-height: 275px;
 	}
 	.button-group {
-		-webkit-flex-direction: column;
-		-moz-flex-direction: column;
-		-ms-flex-direction: column;
-		-o-flex-direction: column;
-		flex-direction: column;
+		-webkit-flex-direction: row;
+		-moz-flex-direction: row;
+		-ms-flex-direction: row;
+		-o-flex-direction: row;
+		flex-direction: row;
 
 		position: absolute;
-	    bottom: 0px;
-	    padding: 0;
-	    width: 100%;
+		bottom: 0px;
+		padding: 0;
+		width: 100%;
 	}
 	.good_counter > button.eco_btn {
 		width: 33.333%;
 		border-radius: 0;
+		background-color: chocolate;
 	}
 	.button-group .good_counter > .cart_quantity {
 		width: 33.333%;
@@ -643,6 +658,24 @@ footer .logo > h5 {
 	.devices-width {
 		padding-left: 5px;
 		padding-right: 5px;
+	}
+	/************* Submenu styles *****************/
+	.child_categ_list {
+		padding: 0;
+		flex-flow: wrap;
+		justify-content: center;
+	}
+	.child_categ_item {
+    margin-bottom: 15px;
+    margin-right: 10px;
+	}
+	.child_categ_item:last-child {
+		margin-right: 0;
+	}
+	/************* Product description *************/
+	.product-preview-description {
+		padding: 5px 10px;
+		max-width: 362px;
 	}
 }
 

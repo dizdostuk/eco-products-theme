@@ -110,7 +110,7 @@
         {% set class = 'col-sm-4' %}
         {% endif %}
         <div class="{{ class }}">
-          <h1>{{ heading_title }} <button type="button" data-toggle="tooltip" class="btn btn-default btn-wishlist" title="" onclick="wishlist.add({{ product_idd }});" data-original-title="В закладки"><i id="wishlist-icon" class="far fa-heart"></i></button></h1>
+          <h1>{{ heading_title }}</h1>
           {# <ul class="list-unstyled">
             {% if manufacturer %}
             <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
@@ -125,7 +125,7 @@
           <ul class="list-unstyled">
             {% if not special %}
             <li>
-              <h2>{{ price }}</h2>
+              <h2>{{ price }} {{ upc }}</h2>
             </li>
             {% else %}
             <li><span style="text-decoration: line-through;">{{ price }}</span></li>
@@ -202,15 +202,6 @@
             {% if option.type == 'text' %}
             <div class="form-group{% if option.required %} required {% endif %}">
               <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-              <div class="good_counter">
-                <button class="eco_btn btn-primary" onclick="cart.decrement('{{product.product_id}}')">
-                  <i class="fa fa-minus"></i>
-                </button>
-                <input id="cart_quantity_{{product.product_id}}" class="cart_quantity" type="number" value="1">
-                <button class="eco_btn btn-primary" onclick="cart.increment('{{product.product_id}}')">
-                  <i class="fa fa-plus"></i>
-                </button>
-              </div>
               <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control" />
             </div>
             {% endif %}
@@ -277,7 +268,7 @@
               <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
               <input type="hidden" name="product_id" value="{{ product_id }}" />
               <br />
-              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-success btn-lg btn-block">{{ button_cart }}</button>
+              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-success btn-lg btn-block">В корзину</button>
             </div>
             {% if minimum > 1 %}
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>

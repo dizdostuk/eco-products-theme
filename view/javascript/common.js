@@ -236,8 +236,8 @@ var cart = {
 			success: function(json) {
 				// Need to set timeout otherwise it wont update the total
 				setTimeout(function () {
-					$('#cart > a').html('<i class="fa fa-shopping-cart"></i><span id="cart-total"> ' + json['total'] + '</span>');
-				}, 100);
+					$('#cart > a').html('<i class="fa fa-shopping-basket"></i><span id="cart-total" class="card_total"> ' + json['total'] + '</span>');
+				},300);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';
@@ -262,8 +262,8 @@ var cart = {
 			success: function(json) {
 				// Need to set timeout otherwise it wont update the total
 				setTimeout(function () {
-					$('#cart > a').html('<i class="fa fa-shopping-cart"></i><span id="cart-total"> ' + json['total'] + '</span>');
-				}, 100);
+					$('#cart > a').html('<i class="fa fa-shopping-basket"></i><span id="cart-total" class="card_total"> ' + json['total'] + '</span>');
+				},300);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';
@@ -288,6 +288,9 @@ var cart = {
 		// if((parseFloat(inpt) !== parseInt(inpt)) || isNaN(inpt)) {
 		// 	inpt = 1;
 		// }
+		if(parseInt(inpt.val()) == 1) {
+			return;
+		}
 		inpt.val(parseInt(inpt.val()) - 1);
 	}
 }
@@ -308,8 +311,8 @@ var voucher = {
 			success: function(json) {
 				// Need to set timeout otherwise it wont update the total
 				setTimeout(function () {
-					$('#cart > a').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-				}, 100);
+					$('#cart > a').html('<i class="fa fa-shopping-basket"></i><span id="cart-total" class="card_total"> ' + json['total'] + '</span>');
+				},300);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';
