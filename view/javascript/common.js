@@ -206,6 +206,7 @@ var cart = {
 				if (json['success']) {
 					$('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
 
+					
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						
