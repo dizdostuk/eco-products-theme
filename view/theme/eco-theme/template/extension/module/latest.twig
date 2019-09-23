@@ -4,11 +4,11 @@
     <div class="product-thumb transition">
       <button type="button" data-toggle="tooltip" class="btn btn-default btn-wishlist" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i id="wishlist-icon" class="far fa-heart"></i></button>
       <div class="image">
-        <p class="product_image_thumb product_popup" id={{product.href}} style="background-image: url({{ product.thumb }})"></p>
+        <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})"></a>
       </div>
       <div class="caption {{product.product_id}}">
         <p class="delivery_days">Дни доставки: {{ product.sku }}</p>
-        <h4 class="product_name"><p class="product_popup" id={{product.href}}>{{ product.name }}</p></h4>
+        <h4 class="product_name"><a class="product_popup" href="{{product.href}}">{{ product.name }}</a></h4>
         {% if product.rating %}
         <div class="rating">{% for i in 1..5 %}
           {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
@@ -45,10 +45,11 @@
   {% endfor %} </div>
 
 <script>
-  $('p.product_popup').click(function() {
+  $('a.product_popup').click(function(e) {
+    e.preventDefault();
     $.magnificPopup.open({
       items: {
-        src: $(this).attr('id')
+        src: $(this).attr('href')
       },
 
       type: 'iframe',
@@ -59,6 +60,7 @@
           '</div>',
       }
     });
+
   });
 
 
