@@ -5,6 +5,8 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 <link href="catalog/view/theme/eco-theme/stylesheet/stylesheet.css" rel="stylesheet">
+<script src="catalog/view/javascript/common.js" ></script>
+
 <div id="product-product" class="container margin-top-50 margin-bottom-50 popup_product_bgc">
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
@@ -265,10 +267,16 @@
             {% endif %}
             <div class="form-group">
               <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
-              <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
+              <input type="text" name="quantity" value="{{ minimum }}" size="2" id="cart_quantity_{{ product_id }}" class="form-control" />
               <input type="hidden" name="product_id" value="{{ product_id }}" />
               <br />
-              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-success btn-lg btn-block">В корзину</button>
+              <button
+                type="button"
+                id="button-cart"
+                data-loading-text="{{ text_loading }}"
+                class="btn btn-success btn-lg btn-block"
+                onclick="cart.add('{{ product_id }}');"
+                >В корзину</button>
             </div>
             {% if minimum > 1 %}
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
@@ -363,18 +371,12 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 });
 //--></script> 
 <script type="text/javascript"><!--
-$('#button-cart').on('click', function() {
+$('#button-carto').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',
 		type: 'post',
 		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
 		dataType: 'json',
-		beforeSend: function() {
-			$('#button-cart').button('loading');
-		},
-		complete: function() {
-			$('#button-cart').button('reset');
-		},
 		success: function(json) {
 			$('.alert-dismissible, .text-danger').remove();
 			$('.form-group').removeClass('has-error');
@@ -403,11 +405,12 @@ $('#button-cart').on('click', function() {
 			if (json['success']) {
 				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+				setTimeout(function () {
+          $('#cart > a').html('<i class="fa fa-shopping-basket"></i><span id="cart-total" class="card_total"> ' + json['total'] + '</span>');
+        },300);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
-
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+        $('#cart > ul').load('index.php?route=common/cart/info ul li');
+        location.reload(true);
 			}
 		},
         error: function(xhr, ajaxOptions, thrownError) {

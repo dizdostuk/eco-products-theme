@@ -1,13 +1,13 @@
 {% if not redirect %}
 <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" style="width: 50%;">
     <thead>
       <tr>
         <td class="text-left">{{ column_name }}</td>
         {# <td class="text-left">{{ column_model }}</td> #}
-        <td class="text-right">{{ column_quantity }}</td>
-        <td class="text-right">{{ column_price }}</td>
-        <td class="text-right">{{ column_total }}</td>
+        <td class="text-right" width="50px">{{ column_quantity }}</td>
+        <td class="text-right" width="100px">{{ column_price }}</td>
+        <td class="text-right" width="100px">{{ column_total }}</td>
       </tr>
     </thead>
     <tbody>
