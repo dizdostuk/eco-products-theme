@@ -1,10 +1,9 @@
 <div class="row">
   <div class="col-sm-6">
     <h2>{{ text_new_customer }}</h2>
-    <p>{{ text_checkout }}</p>
-    <div class="radio">
+    <div class="radio" style="display: none;">
       <label> {% if account == 'register' %}
-        <input type="radio" name="account" value="register" checked="checked" />
+        <input type="radio" name="account" value="register" checked="checked"/>
         {% else %}
         <input type="radio" name="account" value="register" checked="checked"/>
         {% endif %}

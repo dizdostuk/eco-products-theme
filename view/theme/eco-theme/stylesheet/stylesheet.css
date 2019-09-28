@@ -294,7 +294,7 @@ i.fa-shopping-cart {
 	padding-left: 10px;
 }
 .eco_btn {
-	background-color: chocolate;
+	background-color: #6ca54c;
 	border: none;
 	width: 30px;
 	height: 30px;
@@ -315,8 +315,8 @@ i.fa-shopping-cart {
 .add_to_cart_btn:hover {
 	background-color: #b2d235;
 }
-.btn-primary:active, .btn-primary:focus, .btn-primary:visited {
-	background-color: #b74e03 !important
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:visited {
+	background-color: #b2d235 !important
 }
 
 footer {
@@ -556,6 +556,9 @@ footer .logo > h5 {
 * Responsibilities and adaptive
 ********************************/
 @media screen and (max-width: 562px) {
+	h2 {
+		font-size: 26px;
+	}
 	/*********** Cart popup ******************/
 	.cart-popup {
 		top: 64% !important;
@@ -584,8 +587,9 @@ footer .logo > h5 {
 	.product-thumb {
 		position: relative;
 		border-top-right-radius: 10px;
-	    border-top-left-radius: 10px;
-	    border-radius: 0;
+		border-top-left-radius: 10px;
+		border-radius: 0;
+		min-height: 355px;
 	}
 	/************* Tab pane **********/
 	.tab-pane > p {
@@ -619,24 +623,11 @@ footer .logo > h5 {
 		width: 100%;
 		min-height: 275px;
 	}
-	/* .button-group {
-		-webkit-flex-direction: row;
-		-moz-flex-direction: row;
-		-ms-flex-direction: row;
-		-o-flex-direction: row;
-		flex-direction: row;
-
+	.button-group {
 		position: absolute;
-		bottom: 0px;
-		padding: 0;
 		width: 100%;
+		bottom: 0px;
 	}
-	.good_counter > button.eco_btn {
-		width: 33.333%;
-		border-radius: 0;
-		background-color: chocolate;
-	}
-	*/
 	.add_to_cart_btn {
 		width: 60px;
 	}
