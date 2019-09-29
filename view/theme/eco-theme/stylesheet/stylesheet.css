@@ -560,12 +560,23 @@ footer .logo > h5 {
 		font-size: 26px;
 	}
 	/*********** Cart popup ******************/
+	.mfp-content > .popup_block {
+		position: fixed;
+		top: 0;
+	}
+	.mfp-content > .popup_block > ul {
+		width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 	.cart-popup {
 		top: 64% !important;
 		left: 50% !important;
 		position: fixed !important;
 		transform: translate(-50%, -50%) !important;
 	}
+
 	.float-right {
 		float: none;
 		margin-top: 20px;
