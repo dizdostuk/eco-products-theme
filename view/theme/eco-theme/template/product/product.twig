@@ -402,13 +402,19 @@ $('#button-cart').on('click', function() {
 			}
 
 			if (json['success']) {
-				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        setTimeout(function () {
+          $('#button-cart').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        }, 300);
 
 				setTimeout(function () {
           window.parent.$('#cart > a').html('<i class="fa fa-shopping-basket"></i><span id="cart-total" class="card_total"> ' + json['total'] + '</span>');
         },300);
 
-        $('#cart > ul').load('index.php?route=common/cart/info ul li');
+        setTimeout(function() {
+          $('div.alert-success').hide(300);
+        }, 3000);
+
+        window.parent.$('.popup_block > ul').load('index.php?route=common/cart/info ul li');
 			}
 		},
         error: function(xhr, ajaxOptions, thrownError) {
