@@ -103,7 +103,7 @@
               <a class="product_image_thumb product_image_thumb_category product_popup" href="{{ product.href }}" style="background-image: url({{ product.thumb }})"></a>
             </div>
             
-              <div class="caption">
+              <div class="caption {{product.product_id}}">
                 <p class="delivery_days ">Дни доставки: {{ product.sku }}</p>
                 <h4 class="product_name"><a class="product_popup" href="{{ product.href }}">{{ product.name }}</a></h4>
                 {% if product.price %}

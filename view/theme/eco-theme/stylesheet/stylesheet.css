@@ -566,9 +566,14 @@ footer .logo > h5 {
 	}
 	.mfp-content > .popup_block > ul {
 		width: 100%;
-		top: 50%;
+		top: 45%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		overflow-x: hidden;
+    height: 377px;
+	}
+	.mfp-content > .popup_block > ul > li:nth-child(2) {
+		overflow: scroll;
 	}
 	.cart-popup {
 		top: 64% !important;
