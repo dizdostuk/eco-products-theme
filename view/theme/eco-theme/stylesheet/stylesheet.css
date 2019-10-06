@@ -564,6 +564,8 @@ footer .logo > h5 {
 	.mfp-content > .popup_block {
 		position: fixed;
 		top: 0;
+    height: 100vh;
+    width: 100%;
 	}
 	.mfp-content > .popup_block > ul {
 		width: 100%;
@@ -571,7 +573,7 @@ footer .logo > h5 {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		overflow-x: hidden;
-    height: 377px;
+    height: 77%;
 	}
 	.mfp-content > .popup_block > ul > li:nth-child(2) {
 		overflow: scroll;
