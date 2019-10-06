@@ -298,6 +298,7 @@ i.fa-shopping-cart {
 	border: none;
 	width: 30px;
 	height: 30px;
+	border-radius: 50%;
 }
 .eco_btn > i {
 	color: #fff;
@@ -651,7 +652,7 @@ footer .logo > h5 {
 		margin-left: 0;
 	}
 	.button-group .good_counter > .cart_quantity {
-		width: 20px;
+		width: 40px;
 		padding-left: 0;
 	}
 	.shopping_cart_link {
