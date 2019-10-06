@@ -5,9 +5,30 @@ class ControllerProductCategory extends Controller {
 
 		$this->load->model('catalog/category');
 
+
+		$this->load->model('account/wishlist');
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
+
+		$results = $this->model_account_wishlist->getWishlist();
+
+		$data['wishlists'] = array();
+
+		foreach ($results as $result) {
+			$product_info = $this->model_catalog_product->getProduct($result['product_id']);
+
+			if ($product_info) {
+
+				array_push($data['wishlists'], $product_info['product_id']);
+				// $data['wishlists'][] = array(
+				// 	'product_id' => $product_info['product_id'],
+				// 	'remove'     => $this->url->link('account/wishlist', 'remove=' . $product_info['product_id'])
+				// );
+			} else {
+				$this->model_account_wishlist->deleteWishlist($result['product_id']);
+			}
+		}
 
 		if (isset($this->request->get['filter'])) {
 			$filter = $this->request->get['filter'];

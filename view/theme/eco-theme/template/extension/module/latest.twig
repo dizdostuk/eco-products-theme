@@ -1,5 +1,11 @@
 <h3 class="latest_heading_3">{{ heading_title }}</h3>
-<div class="row"> {% for product in products %}
+{% for p in wishlists %}
+{# Match integer #}
+<p>{{p.product_id}}</p>
+{% endfor %}
+<div class="row">
+
+{% for product in products %}
   <div class="product-layout col-lg-3 col-md-3 col-sm-4 col-xs-6 devices-width">
     <div class="product-thumb transition">
       <button
@@ -9,7 +15,11 @@
         class="btn btn-default btn-wishlist"
         title="{{ button_wishlist }}"
         onclick="wishlist.add('{{ product.product_id }}');">
-          <i class="far fa-heart"></i>
+          {% if product.product_id in wishlists %}
+            <i class="fa fa-heart"></i>
+            {% else %}
+            <i class="far fa-heart"></i>
+          {% endif %}
       </button>
       <div class="image">
         <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})"></a>
@@ -50,7 +60,8 @@
       </div>
     </div>
   </div>
-  {% endfor %} </div>
+  {% endfor %}
+  </div>
 
 <script>
   $('a.product_popup').click(function(e) {

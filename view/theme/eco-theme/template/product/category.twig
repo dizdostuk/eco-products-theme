@@ -97,7 +97,11 @@
               title="{{ button_wishlist }}"
               onclick="wishlist.add({{ product.product_id }});"
               data-original-title="В закладки">
-                <i class="far fa-heart"></i>
+                {% if product.product_id in wishlists %}
+                  <i class="fa fa-heart"></i>
+                  {% else %}
+                  <i class="far fa-heart"></i>
+                {% endif %}
             </button>
             <div class="image">
               <a class="product_image_thumb product_image_thumb_category product_popup" href="{{ product.href }}" style="background-image: url({{ product.thumb }})"></a>

@@ -328,7 +328,6 @@ var voucher = {
 	}
 }
 
-let wishList = [];
 var wishlist = {
 	'add': function(product_id) {
 		
@@ -345,10 +344,8 @@ var wishlist = {
 				}
 
 				if (json['success']) {
-					if(!wishList.includes(product_id)) {
-						$('.product-thumb > #wishlist-icon-' + product_id).html('<i class="fa fa-heart" />');
-					}
-					wishList.push(product_id);
+					$('.product-thumb > #wishlist-icon-' + product_id).html('<i class="fa fa-heart" />');
+					
 					// $('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
 
 				}
@@ -362,8 +359,32 @@ var wishlist = {
 			}
 		});
 	},
-	'remove': function() {
+	'remove': function(product_id) {
+		$.ajax({
+			url: 'index.php?route=account/wishlist&',
+			type: 'post',
+			data: 'remove=' + product_id,
+			dataType: 'json',
+			success: function(json) {
 
+				if (json['redirect']) {
+					location = json['redirect'];
+				}
+
+				if (json['success']) {
+					$('.product-thumb > #wishlist-icon-' + product_id).html('<i class="far fa-heart" />');
+					// $('.'+product_id).append('<div class="alert alert-success alert-dismissible" style="position: absolute; right: 0; bottom: 0;z-index: 1; margin: 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <span class="close" data-dismiss="alert">&times;</span></div>');
+
+				}
+
+				$('#wishlist-total span').html(json['total']);
+				$('#wishlist-total').attr('title', json['total']);
+
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
 	}
 }
 
