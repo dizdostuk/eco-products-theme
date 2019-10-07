@@ -218,6 +218,10 @@ i.fa-shopping-cart {
 .latest_heading_3 {
 	margin-bottom: 50px;
 }
+/*************** Banner *****************/
+.swiper-viewport {
+	border: none;
+}
 /********** Thumbnailphoto in product popup page ***********/
 .thumbnail-popup-product {
 	width: 450px;
