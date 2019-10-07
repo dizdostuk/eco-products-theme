@@ -1,8 +1,4 @@
 <h3 class="latest_heading_3">{{ heading_title }}</h3>
-{% for p in wishlists %}
-{# Match integer #}
-<p>{{p.product_id}}</p>
-{% endfor %}
 <div class="row">
 
 {% for product in products %}
@@ -14,7 +10,7 @@
         data-toggle="tooltip"
         class="btn btn-default btn-wishlist"
         title="{{ button_wishlist }}"
-        onclick="wishlist.add('{{ product.product_id }}');">
+        onclick={% if logged %}"wishlist.add({{ product.product_id }});" {% else %} "window.location.href = 'https://pereslavskie-polya.ru/index.php?route=account/login';" {% endif %}>
           {% if product.product_id in wishlists %}
             <i class="fa fa-heart"></i>
             {% else %}

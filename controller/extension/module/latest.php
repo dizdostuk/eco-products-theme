@@ -9,7 +9,7 @@ class ControllerExtensionModuleLatest extends Controller {
 		$this->load->model('tool/image');
 
 		$results = $this->model_account_wishlist->getWishlist();
-
+		$data['logged'] = $this->customer->isLogged();
 		$data['wishlists'] = array();
 
 		foreach ($results as $result) {

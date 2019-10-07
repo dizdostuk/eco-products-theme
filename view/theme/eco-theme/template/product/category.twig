@@ -95,7 +95,7 @@
               data-toggle="tooltip"
               class="btn btn-default btn-wishlist"
               title="{{ button_wishlist }}"
-              onclick="wishlist.add({{ product.product_id }});"
+              onclick={% if logged %}"wishlist.add({{ product.product_id }});" {% else %} "window.location.href = 'https://pereslavskie-polya.ru/index.php?route=account/login';" {% endif %}
               data-original-title="В закладки">
                 {% if product.product_id in wishlists %}
                   <i class="fa fa-heart"></i>

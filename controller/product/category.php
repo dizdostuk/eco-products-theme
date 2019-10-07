@@ -10,6 +10,7 @@ class ControllerProductCategory extends Controller {
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
+		$data['logged'] = $this->customer->isLogged();
 
 		$results = $this->model_account_wishlist->getWishlist();
 
