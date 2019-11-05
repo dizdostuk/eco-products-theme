@@ -18,8 +18,10 @@
       <label class="control-label" for="input-search">{{ entry_search }}</label>
       <div class="row">
         <div class="col-sm-4">
-          <input type="text" name="search" value="{{ search }}" placeholder="{{ text_keyword }}" id="input-search" class="form-control" />
-          <input type="button" value="{{ button_search }}" id="button-search" class="btn btn-primary" />
+          <p style="display: flex;">
+            <input type="text" name="search" value="{{ search }}" placeholder="{{ text_keyword }}" id="input-search" class="form-control" />
+            <input type="button" value="{{ button_search }}" id="button-search" class="btn btn-success" />
+          </p>
         </div>
         {# <div class="col-sm-3">
           <select name="category_id" class="form-control">
@@ -113,11 +115,13 @@
         {% for product in products %}
         <div class="product-layout product-grid col-lg-3 col-md-3 col-sm-4 col-xs-6">
           <div class="product-thumb">
-            <div class="image"><p class="product_image_thumb product_popup" id="{{ product.href }}" style="background-image: url({{ product.thumb }})"></p></div>
+            <div class="image">
+              <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})"></a>
+            </div>
             
               <div class="caption">
                 <p class="delivery_days ">Дни доставки: {{ product.sku }}</p>
-                <h4><p class="product_popup" id="{{ product.href }}">{{ product.name }}</p></h4>
+                <h4 class="product_name"><a class="product_popup" href="{{product.href}}">{{ product.name }}</a></h4>
                 {% if product.price %}
                 <p class="price"> {% if not product.special %}
                   {{ product.price }}
@@ -201,5 +205,22 @@ $('select[name=\'category_id\']').on('change', function() {
 });
 
 $('select[name=\'category_id\']').trigger('change');
+
+$('a.product_popup').click(function(e) {
+    e.preventDefault();
+    $.magnificPopup.open({
+      items: {
+        src: $(this).attr('href')
+      },
+
+      type: 'iframe',
+      iframe: {
+        markup: '<div class="mfp-iframe-scaler">'+
+            '<div class="mfp-close"></div>'+
+            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+          '</div>',
+      }
+    });
+  });
 --></script>
 {{ footer }}
