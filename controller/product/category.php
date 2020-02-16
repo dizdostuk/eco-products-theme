@@ -224,6 +224,7 @@ class ControllerProductCategory extends Controller {
 					'sku'					=> $result['sku'],
 					'upc'					=> $result['upc'],
 					'special'     => $special,
+					'specPercent'	=> round((intval($price) - intval($special)) / intval($price) * 100),
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],

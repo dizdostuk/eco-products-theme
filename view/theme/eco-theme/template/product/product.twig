@@ -24,6 +24,7 @@
         {% endif %}
         <div class="{{ class }}"> {% if thumb or images %}
           <ul class="thumbnails">
+          
             {% if thumb %}
             <li><div class="thumbnail thumbnail-popup-product" title="{{ heading_title }}" style="background: url({{ thumb }})"></div></li>
             {% endif %}
@@ -31,6 +32,9 @@
             {% for image in images %}
             <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
             {% endfor %}
+            {% endif %}
+            {% if special %}
+              <span class="special__percent">- {{ specPercent }} %</span>
             {% endif %}
           </ul>
           {% endif %}
@@ -130,9 +134,9 @@
               <h2>{{ price }} {{ upc }}</h2>
             </li>
             {% else %}
-            <li><span style="text-decoration: line-through;">{{ price }}</span></li>
+            <li><span class="price-old">{{ price }}</span></li>
             <li>
-              <h2>{{ special }}</h2>
+              <h2><span class="price-new">{{ special }}</span></h2>
             </li>
             {% endif %}
             {% if tax %}

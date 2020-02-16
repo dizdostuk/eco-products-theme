@@ -116,7 +116,11 @@
         <div class="product-layout product-grid col-lg-3 col-md-3 col-sm-4 col-xs-6">
           <div class="product-thumb">
             <div class="image">
-              <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})"></a>
+              <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})">
+                {% if product.special %}
+                  <span class="special__percent">- {{ product.specPercent }} %</span>
+                {% endif %}
+              </a>
             </div>
             
               <div class="caption">

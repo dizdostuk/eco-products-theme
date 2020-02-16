@@ -82,10 +82,14 @@ class ControllerExtensionModuleLatest extends Controller {
 					'sku'					=> $result['sku'],
 					'upc'					=> $result['upc'],
 					'special'     => $special,
+					'specPercent'	=> round((intval($price) - intval($special)) / intval($price) * 100),
 					'tax'         => $tax,
 					'rating'      => $rating,
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
+				// if($special) {
+				// 	$data['percentFromSpecial'] = ;
+				// }
 			}
 
 			return $this->load->view('extension/module/latest', $data);

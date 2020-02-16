@@ -19,7 +19,11 @@
           {% endif %}
       </button>
       <div class="image">
-        <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})"></a>
+        <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})">
+          {% if product.special %}
+            <span class="special__percent">- {{ product.specPercent }} %</span>
+          {% endif %}
+        </a>
       </div>
       <div class="caption {{product.product_id}}">
         <p class="delivery_days">Дни доставки: {{ product.sku }}</p>
