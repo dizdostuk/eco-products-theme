@@ -1,0 +1,101 @@
+<h2 style="text-align: center">Фермерские продукты с доставкой на дом</h2>
+<h3 class="column_heading featured_heading_3">{{ heading_title }}</h3>
+<div class="row">
+ {% for product in products %}
+  {# <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="product-thumb transition">
+      <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+      <div class="caption">
+        <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+        <p>{{ product.description }}</p>
+        {% if product.rating %}
+        <div class="rating">
+          {% for i in 5 %}
+          {% if product.rating < i %}
+          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+          {% else %}
+          <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if product.price %}
+        <p class="price">
+          {% if not product.special %}
+          {{ product.price }}
+          {% else %}
+          <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+          {% endif %}
+          {% if product.tax %}
+          <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+          {% endif %}
+        </p>
+        {% endif %}
+      </div>
+      <div class="button-group">
+        <button type="button" onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+        <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+        <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+      </div>
+    </div>
+  </div> #}
+  <div class="product-layout col-lg-3 col-md-3 col-sm-4 col-xs-6 devices-width">
+    <div class="product-thumb transition">
+      <button
+        id="wishlist-icon-{{ product.product_id }}"
+        type="button"
+        data-toggle="tooltip"
+        class="btn btn-default btn-wishlist"
+        title="{{ button_wishlist }}"
+        onclick={% if logged %}"wishlist.add({{ product.product_id }});" {% else %} "window.location.href = 'https://pereslavskie-polya.ru/index.php?route=account/login';" {% endif %}>
+          {% if product.product_id in wishlists %}
+            <i class="fa fa-heart"></i>
+            {% else %}
+            <i class="far fa-heart"></i>
+          {% endif %}
+      </button>
+      <div class="image">
+        <a class="product_image_thumb product_popup" href="{{product.href}}" style="background-image: url({{ product.thumb }})">
+          {% if product.special %}
+            <span class="special__percent">- {{ product.specPercent }} %</span>
+          {% endif %}
+        </a>
+      </div>
+      <div class="caption {{product.product_id}}">
+        <p class="delivery_days">Дни доставки: {{ product.sku }}</p>
+        <h4 class="product_name"><a class="product_popup" href="{{product.href}}">{{ product.name }}</a></h4>
+        {% if product.rating %}
+        <div class="rating">{% for i in 1..5 %}
+          {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
+          {% endfor %}</div>
+        {% endif %}
+        {% if product.price %}
+        <p class="price"> {% if not product.special %}
+          {{ product.price }}
+          <span class="product_upc">{{product.upc}}</span>
+          {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+          {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %}
+          
+        </p>
+        {% endif %}
+      </div>
+      <div class="button-group">
+        <div class="good_counter">
+          <button class="eco_btn" onclick="cart.decrement('{{product.product_id}}')">
+            <i class="fa fa-minus"></i>
+          </button>
+          <input id="cart_quantity_{{product.product_id}}" class="cart_quantity" type="number" value="1">
+          <button class="eco_btn" onclick="cart.increment('{{product.product_id}}')">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+        
+        <button class="add_to_cart_btn" type="button" onclick="cart.add('{{ product.product_id }}');">
+          <i class="fa fa-shopping-basket"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
+        </button>
+        <!--<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>-->
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
